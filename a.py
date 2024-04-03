@@ -7,14 +7,13 @@ secrets = st.secrets
 def authenticate(username, password):
     try:
         authentication_secrets = secrets["authentication"]
-        st.write("Authentication secrets:", authentication_secrets)  # Debugging statement
-        if username == authentication_secrets["username"] and password == authentication_secrets["password"]:
+        if username in authentication_secrets and password == authentication_secrets[username]["password"]:
             return True
         else:
             return False
-    except KeyError as e:
-        st.error(f"KeyError: {e}")
+    except KeyError:
         return False
+
 
 
 # Main Streamlit app

@@ -5,7 +5,7 @@ secrets = st.secrets
 
 # Authenticate user based on provided credentials
 def authenticate(username, password):
-    if username == secrets["DB_USERNAME"] and password == secrets["DB_PASSWORD"]:
+    if username == secrets["authentication"]["username"] and password == secrets["authentication"]["password"]:
         return True
     else:
         return False

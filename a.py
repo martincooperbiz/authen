@@ -30,8 +30,7 @@ def main():
         if authenticate(username, password):
             st.success('Logged in successfully!')
             st.markdown(
-                '<iframe src="https://udify.app/chatbot/0HbD5FcGtV6xgtww" style="width: 100%; height: 1080px; min-height: 1920px" frameborder="5" allow="microphone"></iframe>',
-                unsafe_allow_html=True
+                '<iframe src="https://udify.app/chatbot/0HbD5FcGtV6xgtww" style="width: 100%; height: 800px; min-height: 700px" frameborder="0" allow="microphone"></iframe>',
             )
         else:
             st.error('Invalid username or password. Please try again.')

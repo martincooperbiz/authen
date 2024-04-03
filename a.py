@@ -1,19 +1,14 @@
 import streamlit as st
-from dotenv import load_dotenv
-import os
 
-# Load environment variables from .env file
-load_dotenv()
+# Load secrets from Streamlit Secrets
+secrets = st.secrets
 
 # Authenticate user based on provided credentials
 def authenticate(username, password):
-    # Check if username and password are valid
-    users = os.getenv('USERS')
-    if users:
-        user_dict = dict(item.split(":") for item in users.split(","))
-        if username in user_dict and user_dict[username] == password:
-            return True
-    return False
+    if username == secrets["DB_USERNAME"] and password == secrets["DB_PASSWORD"]:
+        return True
+    else:
+        return False
 
 # Main Streamlit app
 def main():

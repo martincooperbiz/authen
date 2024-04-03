@@ -16,7 +16,7 @@ def authenticate(username, password):
 
 # Main Streamlit app
 def main():
-    st.title('Secure Chatbot App')
+    st.title('Secure App')
 
     # Authentication form
     username = st.text_input('Username')

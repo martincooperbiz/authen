@@ -5,10 +5,17 @@ secrets = st.secrets
 
 # Authenticate user based on provided credentials
 def authenticate(username, password):
-    if username == secrets["authentication"]["username"] and password == secrets["authentication"]["password"]:
-        return True
-    else:
+    try:
+        authentication_secrets = secrets["authentication"]
+        st.write("Authentication secrets:", authentication_secrets)  # Debugging statement
+        if username == authentication_secrets["username"] and password == authentication_secrets["password"]:
+            return True
+        else:
+            return False
+    except KeyError as e:
+        st.error(f"KeyError: {e}")
         return False
+
 
 # Main Streamlit app
 def main():

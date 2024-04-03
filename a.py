@@ -14,8 +14,6 @@ def authenticate(username, password):
     except KeyError:
         return False
 
-
-
 # Main Streamlit app
 def main():
     st.title('Secure Chatbot App')
@@ -29,8 +27,10 @@ def main():
         # Authenticate user
         if authenticate(username, password):
             st.success('Logged in successfully!')
+            # Display the chatbot iframe
             st.markdown(
                 '<iframe src="https://udify.app/chatbot/0HbD5FcGtV6xgtww" style="width: 100%; height: 800px; min-height: 700px" frameborder="0" allow="microphone"></iframe>',
+                unsafe_allow_html=True
             )
         else:
             st.error('Invalid username or password. Please try again.')
